@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom';
 
 import configureStore from './store/configureStore';
 import Application from './components/Application';
-import * as subredditActions from './actions/subredditActions';
+import { fetchSubreddit } from './actions/subredditActions';
 
 const store = configureStore();
-store.dispatch(subredditActions.fetchSubreddit('relationships'));
+store.dispatch(fetchSubreddit(store.getState().activeSubreddit));
 
 ReactDOM.render(
   <Provider store={store}>

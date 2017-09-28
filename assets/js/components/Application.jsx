@@ -29,7 +29,7 @@ Application.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  name: 'relationships',
+  name: state.activeSubreddit,
   posts: state.subreddit ? state.subreddit : [],
   post: state.post ? state.post : {},
 });

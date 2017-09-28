@@ -3,5 +3,9 @@
 
   &__name {
     margin-top: 5px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
