@@ -1,0 +1,25 @@
+.subreddit-posts {
+  border: 1px solid $color-border;
+  bottom: 10px;
+  left: 10px;
+  overflow-x: none;
+  overflow-y: auto;
+  position: fixed;
+  top: 45px;
+  width: 450px;
+}
+
+.subreddit-post {
+  border-top: 1px solid $color-border;
+  padding: 10px;
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &:hover,
+  &.is-active {
+    background-color: #f3f3f3;
+    cursor: pointer;
+  }
+}

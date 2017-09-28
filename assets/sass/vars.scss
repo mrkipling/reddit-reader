@@ -1,0 +1,42 @@
+/*--- site widths ---*/
+
+$siteWidth-min: 320px;
+$siteWidth-max: 1140px;
+
+/*--- breakpoints ---*/
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+
+/*--- colors ---*/
+
+$color-text: #444;
+$color-text-light: #999;
+
+$color-anchor: #1856ff;
+$color-anchor-hover: #0030b1;
+$color-anchor-visited: #980ce8;
+$color-anchor-active: #ff0302;
+
+$color-error: #ff0302;
+$color-border: #ccc;
+
+/*--- fonts ---*/
+
+$fontFamily: Arial, Helvetica, sans-serif;
+$fontFamily-heading: Arial, Helvetica, sans-serif;
+
+$fontSize-tiny: 10px;
+$fontSize-smaller: 11px;
+$fontSize-small: 12px;
+$fontSize-regular: 14px;
+$fontSize-large: 16px;
+$fontSize-larger: 18px;
+$fontSize-huge: 26px;
+
+$fontSize-h1: 30px;
+$fontSize-h2: 26px;
+$fontSize-h3: 22px;
+$fontSize-h4: 20px;
+$fontSize-h5: 18px;
+$fontSize-h6: 16px;

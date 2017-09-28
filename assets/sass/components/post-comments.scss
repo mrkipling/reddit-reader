@@ -1,0 +1,28 @@
+.comment {
+  margin-top: 20px;
+  padding: 10px 10px 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &__header {
+    font-size: $fontSize-small;
+    margin-bottom: 5px;
+
+    &__user {
+      font-weight: bold;
+    }
+
+    &__votes {
+      color: #777;
+      margin-left: 5px;
+    }
+  }
+
+  & > .comment {
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-right: 0;
+  }
+}
