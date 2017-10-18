@@ -1,21 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { connect } from 'react-redux';
 
-import { changeSubreddit } from '../actions/activeSubredditActions';
+import Subreddit from './Subreddit';
 
 class Subreddits extends React.Component {
   render() {
     return (
       <ul className="subreddits">
         {this.props.subreddits.map(subreddit =>
-          <li
-            key={subreddit.id}
-            onClick={() => this.props.loadSubreddit(subreddit)}
-            className="subreddits__subreddit"
-          >
-            {subreddit.display_name_prefixed}
-          </li>)}
+          <Subreddit key={subreddit.id} subreddit={subreddit} />)}
       </ul>
     );
   }
@@ -23,15 +16,6 @@ class Subreddits extends React.Component {
 
 Subreddits.propTypes = {
   subreddits: PropTypes.array,
-  loadSubreddit: PropTypes.func,
 };
 
-const mapStateToProps = () => ({
-});
-
-const mapDispatchToProps = dispatch => ({
-  loadSubreddit: subreddit =>
-    dispatch(changeSubreddit(subreddit.display_name)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Subreddits);
+export default Subreddits;
