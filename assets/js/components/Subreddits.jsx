@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchSubreddit } from '../actions/subredditActions';
+import { changeSubreddit } from '../actions/activeSubredditActions';
 
 class Subreddits extends React.Component {
   render() {
@@ -31,7 +31,7 @@ const mapStateToProps = () => ({
 
 const mapDispatchToProps = dispatch => ({
   loadSubreddit: subreddit =>
-    dispatch(fetchSubreddit(subreddit.display_name)),
+    dispatch(changeSubreddit(subreddit.display_name)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Subreddits);

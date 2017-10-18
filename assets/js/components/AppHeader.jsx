@@ -8,14 +8,14 @@ class AppHeader extends React.Component {
   render() {
     return (
       <header className="subreddit-header">
-        <h1 className="subreddit-header__name" onClick={this.props.askChangeSubreddit}>{'Subreddit: ' + this.props.name}</h1>
+        <h1 className="subreddit-header__name" onClick={this.props.askChangeSubreddit}>{'Subreddit: ' + this.props.activeSubreddit}</h1>
       </header>
     );
   }
 }
 
 AppHeader.propTypes = {
-  name: PropTypes.string,
+  activeSubreddit: PropTypes.string,
   askChangeSubreddit: PropTypes.func,
 };
 

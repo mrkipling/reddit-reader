@@ -9,11 +9,11 @@ import FullPost from './FullPost';
 
 class Application extends React.Component {
   render() {
-    return (!this.props.posts.length) ? (
+    return (!this.props.subreddits.length) ? (
       <p>Loading...</p>
     ) : (
       <div id="application">
-        <AppHeader name={this.props.name} />
+        <AppHeader activeSubreddit={this.props.activeSubreddit} />
         <div className="u-cf">
           <Subreddits subreddits={this.props.subreddits} />
           <Posts posts={this.props.posts} />
@@ -25,14 +25,14 @@ class Application extends React.Component {
 }
 
 Application.propTypes = {
-  name: PropTypes.string,
+  activeSubreddit: PropTypes.string,
   subreddits: PropTypes.array,
   posts: PropTypes.array,
   post: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
-  name: state.activeSubreddit,
+  activeSubreddit: state.activeSubreddit,
   subreddits: state.subreddits,
   posts: state.subreddit ? state.subreddit : [],
   post: state.post ? state.post : {},

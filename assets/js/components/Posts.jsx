@@ -5,7 +5,7 @@ import Post from './Post';
 
 class Posts extends React.Component {
   render() {
-    return (
+    return !this.props.posts.length ? null : (
       <ul className="subreddit-posts">
         {this.props.posts.map(post => <Post key={post.id} post={post} />)}
       </ul>
