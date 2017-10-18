@@ -8,7 +8,10 @@ class AppHeader extends React.Component {
   render() {
     return (
       <header className="subreddit-header">
-        <h1 className="subreddit-header__name" onClick={this.props.askChangeSubreddit}>{'Subreddit: ' + this.props.activeSubreddit}</h1>
+        {!this.props.activeSubreddit ?
+         null :
+         <h1 className="subreddit-header__name" onClick={this.props.askChangeSubreddit}>{'/r/' + this.props.activeSubreddit}</h1>
+        }
       </header>
     );
   }
