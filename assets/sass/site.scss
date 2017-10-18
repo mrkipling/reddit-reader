@@ -20,6 +20,7 @@ $slicer-breakpoint-names: 's' 'm' 'l';
 // components
 
 @import "components/subreddit-header";
+@import "components/subreddits";
 @import "components/subreddit-posts";
 @import "components/full-post";
 @import "components/post-comments";
