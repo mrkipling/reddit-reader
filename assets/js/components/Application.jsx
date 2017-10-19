@@ -9,6 +9,22 @@ import FullPost from './FullPost';
 
 class Application extends React.Component {
   render() {
+    const subreddits = (this.props.loading === 'subreddits') ? (
+      <div className="subreddits">
+        <div className="loading" />
+      </div>
+    ) : (
+      <Subreddits subreddits={this.props.subreddits} />
+    );
+
+    const posts = (this.props.loading === 'subreddit') ? (
+      <div className="subreddit-posts">
+        <div className="loading" />
+      </div>
+    ) : (
+      <Posts posts={this.props.posts} />
+    );
+
     const fullPost = (this.props.loading === 'post') ? (
       <div className="full-post">
         <div className="loading" />
@@ -17,14 +33,12 @@ class Application extends React.Component {
       <FullPost post={this.props.post} />
     );
 
-    return (!this.props.subreddits.length) ? (
-      <p>Loading...</p>
-    ) : (
+    return (
       <div id="application">
         <AppHeader activeSubreddit={this.props.activeSubreddit} />
         <div className="u-cf">
-          <Subreddits subreddits={this.props.subreddits} />
-          <Posts posts={this.props.posts} />
+          {subreddits}
+          {posts}
           {fullPost}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { client } from '../utils';
+import { loadingStart, loadingEnd } from './loadingActions';
 
 const reddit = client.connect();
 
@@ -7,6 +8,11 @@ export const fetchSubredditsSuccess = subreddits => ({
   subreddits,
 });
 
-export const fetchSubreddits = () => dispatch =>
-  reddit.getSubscriptions()
-   .then(subreddits => dispatch(fetchSubredditsSuccess(subreddits)));
+export const fetchSubreddits = () => (dispatch) => {
+  dispatch(loadingStart('subreddits'));
+  return reddit.getSubscriptions()
+               .then((subreddits) => {
+                 dispatch(loadingEnd());
+                 dispatch(fetchSubredditsSuccess(subreddits));
+               });
+};
