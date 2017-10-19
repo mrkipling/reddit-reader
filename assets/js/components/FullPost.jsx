@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { plural } from '../utils';
+import { plural, timeAgo } from '../utils';
 import Comments from './Comments';
 
 class FullPost extends React.Component {
@@ -13,9 +13,12 @@ class FullPost extends React.Component {
         <header className="full-post__header">
           <h2 className="full-post__header__title">{this.props.post.title}</h2>
           <p className="full-post__header__details">
-            Posted by
-            <span className="full-post__header__details__user">{this.props.post.author.name}</span>
-            <span className="full-post__header__details__votes">{score + ' ' + plural(score, ['vote', 'votes'])}</span>
+            Posted
+            <span className="full-post__header__details__time"> {timeAgo(this.props.post.created_utc)} </span>
+            by
+            <span className="full-post__header__details__user"> {this.props.post.author.name} </span>
+            with
+            <span className="full-post__header__details__votes">{' ' + score + ' ' + plural(score, ['vote', 'votes'])}</span>
           </p>
           <div className="full-post__header__text usertext" dangerouslySetInnerHTML={{ __html: this.props.post.selftext_html }} />
         </header>
