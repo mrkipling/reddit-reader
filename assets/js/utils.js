@@ -1,3 +1,4 @@
+import moment from 'moment';
 import settings from './settings';
 
 const client = {
@@ -6,9 +7,14 @@ const client = {
   },
 };
 
-const plural = (int, words) => (int === 1 ? words[0] : words[1]);
+const plural = (int, words) =>
+  (int === 1 ? words[0] : words[1]);
+
+const timeAgo = timestamp =>
+  moment.unix(timestamp).fromNow();
 
 export {
   client,
   plural,
+  timeAgo,
 };

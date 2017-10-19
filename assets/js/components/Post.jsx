@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import { timeAgo } from '../utils';
 
 import { fetchPost } from '../actions/postActions';
 
@@ -13,7 +14,14 @@ class Post extends React.Component {
     }
 
     return (
-      <li className={cssClass} onClick={this.props.loadPost}>{this.props.post.title}</li>
+      <li className={cssClass} onClick={this.props.loadPost}>
+        <h2 className="subreddit-post__title">{this.props.post.title}</h2>
+        <ul className="subreddit-post__info">
+          <li className="subreddit-post__time">{timeAgo(this.props.post.created_utc)}</li>
+          <li className="subreddit-post__author">{this.props.post.author.name}</li>
+        </ul>
+        <div className="subreddit-post__votes">{this.props.post.ups}</div>
+      </li>
     );
   }
 }
