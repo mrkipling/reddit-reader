@@ -15,6 +15,15 @@
       margin-left: 0;
     }
 
+    a {
+      color: #000;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
     &--time {
       background-image: url('/static/images/time.svg');
     }
@@ -25,19 +34,6 @@
 
     &--votes {
       background-image: url('/static/images/upvote.svg');
-    }
-
-    &--permalink {
-      background-image: url('/static/images/link.svg');
-
-      a {
-        color: #000;
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
     }
   }
 }

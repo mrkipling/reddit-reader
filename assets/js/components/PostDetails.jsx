@@ -4,18 +4,17 @@ import { timeAgo } from '../utils';
 
 class PostDetails extends React.Component {
   render() {
-    const permalink = this.props.showPermalink ? (
-      <li className="post-details__item post-details__item--permalink">
-        <a href={'https://www.reddit.com' + this.props.post.permalink} target="_blank" rel="noopener noreferrer">Permalink</a>
-      </li>
-    ) : null;
-
     return (
       <ul className="post-details u-cf">
         <li className="post-details__item post-details__item--votes">{this.props.post.ups}</li>
-        <li className="post-details__item post-details__item--time">{timeAgo(this.props.post.created_utc)}</li>
-        <li className="post-details__item post-details__item--author">{this.props.post.author.name}</li>
-        {permalink}
+        <li className="post-details__item post-details__item--time">
+          <a href={'https://www.reddit.com' + this.props.post.permalink} target="_blank" rel="noopener noreferrer">
+            {timeAgo(this.props.post.created_utc)}
+          </a>
+        </li>
+        <li className="post-details__item post-details__item--author">
+          <a href={'https://www.reddit.com/u/' + this.props.post.author.name} target="_blank" rel="noopener noreferrer">{this.props.post.author.name}</a>
+        </li>
       </ul>
     );
   }
@@ -23,7 +22,6 @@ class PostDetails extends React.Component {
 
 PostDetails.propTypes = {
   post: PropTypes.object,
-  showPermalink: PropTypes.boolean,
 };
 
 export default PostDetails;
