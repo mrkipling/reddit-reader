@@ -1,6 +1,6 @@
 import { client } from '../utils';
 
-const r = client.connect();
+const reddit = client.connect();
 
 export const fetchSubredditSuccess = subreddit => ({
   type: 'FETCH_SUBREDDIT_SUCCESS',
@@ -8,6 +8,6 @@ export const fetchSubredditSuccess = subreddit => ({
 });
 
 export const fetchSubreddit = subredditName => dispatch =>
-  r.getHot(subredditName)
+  reddit.getHot(subredditName)
    .map(post => post)
    .then(subreddit => dispatch(fetchSubredditSuccess(subreddit)));

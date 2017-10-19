@@ -1,6 +1,6 @@
 import { client } from '../utils';
 
-const r = client.connect();
+const reddit = client.connect();
 
 export const fetchSubredditsSuccess = subreddits => ({
   type: 'FETCH_SUBREDDITS_SUCCESS',
@@ -8,5 +8,5 @@ export const fetchSubredditsSuccess = subreddits => ({
 });
 
 export const fetchSubreddits = () => dispatch =>
-  r.getSubscriptions()
+  reddit.getSubscriptions()
    .then(subreddits => dispatch(fetchSubredditsSuccess(subreddits)));

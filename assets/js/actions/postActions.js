@@ -1,6 +1,6 @@
 import { client } from '../utils';
 
-const r = client.connect();
+const reddit = client.connect();
 
 export const fetchPostSuccess = post => ({
   type: 'FETCH_POST_SUCCESS',
@@ -8,6 +8,6 @@ export const fetchPostSuccess = post => ({
 });
 
 export const fetchPost = postId => dispatch =>
-  r.getSubmission(postId)
+  reddit.getSubmission(postId)
    .expandReplies({ limit: 5, depth: 5 })
    .then(post => dispatch(fetchPostSuccess(post)));
