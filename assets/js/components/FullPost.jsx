@@ -17,7 +17,7 @@ class FullPost extends React.Component {
       <div className="full-post">
         <header className="full-post__header card">
           <h2 className="full-post__header__title">{title}</h2>
-          <PostDetails post={this.props.post} />
+          <PostDetails post={this.props.post} showPermalink />
           <div className="full-post__header__text usertext" dangerouslySetInnerHTML={{ __html: this.props.post.selftext_html }} />
           <PostMedia post={this.props.post} />
         </header>
