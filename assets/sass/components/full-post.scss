@@ -13,6 +13,15 @@
 
     &__title {
       font-size: $fontSize-large;
+
+      a {
+        color: $color-text;
+        text-decoration: none;
+
+        &:hover {
+          color: #000;
+        }
+      }
     }
 
     .post-details {
