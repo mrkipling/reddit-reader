@@ -11,12 +11,6 @@ class FullPost extends React.Component {
       return null;
     }
 
-    const div = document.getElementById('full-post');
-
-    if (div) {
-      div.scrollTop = 0;
-    }
-
     const title = this.props.post.is_self ? (
       <span>{this.props.post.title}</span>
     ) : (
