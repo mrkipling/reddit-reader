@@ -28,41 +28,4 @@
   &.is-active {
     background-color: #eee;
   }
-
-  &__details {
-    color: #000;
-    font-size: $fontSize-small;
-    margin-top: 10px;
-    opacity: 0.5;
-  }
-
-  &__info {
-    float: left;
-
-    &__time,
-    &__author,
-    &__votes {
-      background-position: left center;
-      background-repeat: no-repeat;
-      display: inline-block;
-      margin-left: 10px;
-      padding-left: 12px;
-
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-
-    &__time {
-      background-image: url('/static/images/time.svg');
-    }
-
-    &__author {
-      background-image: url('/static/images/author.svg');
-    }
-
-    &__votes {
-      background-image: url('/static/images/upvote.svg');
-    }
-  }
 }

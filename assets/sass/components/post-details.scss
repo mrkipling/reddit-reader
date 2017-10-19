@@ -1,0 +1,30 @@
+.post-details {
+  color: #000;
+  font-size: $fontSize-small;
+  margin-top: 10px;
+  opacity: 0.5;
+
+  &__item {
+    background-position: left center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-left: 10px;
+    padding-left: 12px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &--time {
+      background-image: url('/static/images/time.svg');
+    }
+
+    &--author {
+      background-image: url('/static/images/author.svg');
+    }
+
+    &--votes {
+      background-image: url('/static/images/upvote.svg');
+    }
+  }
+}

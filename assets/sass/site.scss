@@ -24,5 +24,6 @@ $slicer-breakpoint-names: 's' 'm' 'l';
 @import "components/subreddit-posts";
 @import "components/full-post";
 @import "components/post-comments";
+@import "components/post-details";
 
 @import "utils";    // utility classes (at end for specificity reasons)
