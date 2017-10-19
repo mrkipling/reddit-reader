@@ -1,0 +1,15 @@
+.card {
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.2);
+  margin: 10px 10px 0 0;
+  padding: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &.is-active {
+    background-color: #eee;
+  }
+}

@@ -19,11 +19,12 @@ $slicer-breakpoint-names: 's' 'm' 'l';
 
 // components
 
+@import "components/card";
+@import "components/post-details";
 @import "components/subreddit-header";
 @import "components/subreddits";
 @import "components/subreddit-posts";
 @import "components/full-post";
 @import "components/post-comments";
-@import "components/post-details";
 
 @import "utils";    // utility classes (at end for specificity reasons)

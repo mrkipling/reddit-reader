@@ -1,6 +1,10 @@
+.post-comments {
+  padding: 0 20px;
+}
+
 .comment {
   margin-top: 20px;
-  padding: 10px 10px 0;
+  padding-top: 10px;
 
   &:first-child {
     margin-top: 0;
@@ -10,8 +14,12 @@
     font-size: $fontSize-small;
     margin-bottom: 5px;
 
-    &__user {
+    &__author {
       font-weight: bold;
+
+      &.is-op {
+        color: #277bff;
+      }
     }
 
     &__votes {

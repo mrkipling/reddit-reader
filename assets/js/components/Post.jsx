@@ -7,7 +7,7 @@ import PostDetails from './PostDetails';
 
 class Post extends React.Component {
   render() {
-    let cssClass = 'subreddit-post';
+    let cssClass = 'subreddit-post card';
 
     if (this.props.activePostId === this.props.post.id) {
       cssClass += ' is-active';
