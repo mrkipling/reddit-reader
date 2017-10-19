@@ -7,6 +7,12 @@ import PostMedia from './PostMedia';
 
 class FullPost extends React.Component {
   render() {
+    const div = document.getElementById('full-post');
+
+    if (div) {
+      div.scrollTop = 0;
+    }
+
     const title = this.props.post.is_self ? (
       <span>{this.props.post.title}</span>
     ) : (
@@ -14,7 +20,7 @@ class FullPost extends React.Component {
     );
 
     return !this.props.post.comments ? null : (
-      <div className="full-post">
+      <div id="full-post" className="full-post">
         <header className="full-post__header card">
           <h2 className="full-post__header__title">{title}</h2>
           <PostDetails post={this.props.post} />
