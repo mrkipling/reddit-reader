@@ -9,5 +9,5 @@ export const fetchPostSuccess = post => ({
 
 export const fetchPost = postId => dispatch =>
   reddit.getSubmission(postId)
-   .expandReplies({ limit: 5, depth: 5 })
+   .expandReplies({ limit: 0, depth: 0 })
    .then(post => dispatch(fetchPostSuccess(post)));
