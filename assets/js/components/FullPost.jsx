@@ -7,6 +7,10 @@ import PostMedia from './PostMedia';
 
 class FullPost extends React.Component {
   render() {
+    if (!this.props.post.comments) {
+      return null;
+    }
+
     const div = document.getElementById('full-post');
 
     if (div) {
@@ -19,7 +23,7 @@ class FullPost extends React.Component {
       <a href={this.props.post.url} target="_blank" rel="noopener noreferrer">{this.props.post.title}</a>
     );
 
-    return !this.props.post.comments ? null : (
+    return (
       <div id="full-post" className="full-post">
         <header className="full-post__header card">
           <h2 className="full-post__header__title">{title}</h2>

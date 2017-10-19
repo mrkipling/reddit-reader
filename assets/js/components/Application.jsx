@@ -9,6 +9,14 @@ import FullPost from './FullPost';
 
 class Application extends React.Component {
   render() {
+    const fullPost = (this.props.loading === 'post') ? (
+      <div className="full-post">
+        <div className="loading" />
+      </div>
+    ) : (
+      <FullPost post={this.props.post} />
+    );
+
     return (!this.props.subreddits.length) ? (
       <p>Loading...</p>
     ) : (
@@ -17,7 +25,7 @@ class Application extends React.Component {
         <div className="u-cf">
           <Subreddits subreddits={this.props.subreddits} />
           <Posts posts={this.props.posts} />
-          <FullPost post={this.props.post} />
+          {fullPost}
         </div>
       </div>
     );
@@ -29,6 +37,7 @@ Application.propTypes = {
   subreddits: PropTypes.array,
   posts: PropTypes.array,
   post: PropTypes.object,
+  loading: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
@@ -36,6 +45,7 @@ const mapStateToProps = state => ({
   subreddits: state.subreddits,
   posts: state.subreddit ? state.subreddit : [],
   post: state.post ? state.post : {},
+  loading: state.loading,
 });
 
 const mapDispatchToProps = () => ({

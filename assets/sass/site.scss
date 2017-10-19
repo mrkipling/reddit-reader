@@ -20,6 +20,7 @@ $slicer-breakpoint-names: 's' 'm' 'l';
 // components
 
 @import "components/card";
+@import "components/loading";
 @import "components/post-details";
 @import "components/subreddit-header";
 @import "components/subreddits";
