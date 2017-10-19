@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { timeAgo } from '../utils';
+import { timeAgo, formatNumber } from '../utils';
 
 class PostDetails extends React.Component {
   render() {
     return (
       <ul className="post-details u-cf">
-        <li className="post-details__item post-details__item--votes">{this.props.post.ups}</li>
+        <li className="post-details__item post-details__item--votes">{formatNumber(this.props.post.ups)}</li>
         <li className="post-details__item post-details__item--time">
           <a href={'https://www.reddit.com' + this.props.post.permalink} target="_blank" rel="noopener noreferrer">
             {timeAgo(this.props.post.created_utc)}

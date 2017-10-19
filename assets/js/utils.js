@@ -7,6 +7,9 @@ const client = {
   },
 };
 
+const formatNumber = num =>
+  num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
 const plural = (int, words) =>
   (int === 1 ? words[0] : words[1]);
 
@@ -15,6 +18,7 @@ const timeAgo = timestamp =>
 
 export {
   client,
+  formatNumber,
   plural,
   timeAgo,
 };
