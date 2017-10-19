@@ -3,6 +3,7 @@ import React from 'react';
 
 import Comments from './Comments';
 import PostDetails from './PostDetails';
+import PostMedia from './PostMedia';
 
 class FullPost extends React.Component {
   render() {
@@ -18,6 +19,7 @@ class FullPost extends React.Component {
           <h2 className="full-post__header__title">{title}</h2>
           <PostDetails post={this.props.post} />
           <div className="full-post__header__text usertext" dangerouslySetInnerHTML={{ __html: this.props.post.selftext_html }} />
+          <PostMedia post={this.props.post} />
         </header>
         <Comments comments={this.props.post.comments} />
       </div>
