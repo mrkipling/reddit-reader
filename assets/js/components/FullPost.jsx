@@ -6,8 +6,6 @@ import PostDetails from './PostDetails';
 
 class FullPost extends React.Component {
   render() {
-    console.log(this.props.post);
-
     const title = this.props.post.is_self ? (
       <span>{this.props.post.title}</span>
     ) : (
