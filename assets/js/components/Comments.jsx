@@ -7,7 +7,8 @@ class Comments extends React.Component {
   render() {
     return (
       <div className="post-comments">
-        {this.props.comments.map(comment => <Comment key={comment.id} comment={comment} />)}
+        {this.props.comments.map(comment =>
+          <Comment key={comment.id} comment={comment} op={this.props.op} />)}
       </div>
     );
   }
@@ -15,6 +16,7 @@ class Comments extends React.Component {
 
 Comments.propTypes = {
   comments: PropTypes.array,
+  op: PropTypes.string,
 };
 
 export default Comments;
