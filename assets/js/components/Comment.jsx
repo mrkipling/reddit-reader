@@ -14,6 +14,17 @@ class Comment extends React.Component {
       authorCssClass += ' is-op';
     }
 
+    const continueThread = (!comment.replies.length && comment.replies._query.comment) ? (
+      <a
+        className="comment__continue-thread"
+        href={'https://www.reddit.com/' + this.props.permalink + comment.replies._query.comment}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Continue this thread
+      </a>
+    ) : null;
+
     return (
       <div className="comment">
         <header className="comment__header">
@@ -25,7 +36,14 @@ class Comment extends React.Component {
           <span className="comment__header__votes">{score + ' ' + plural(score, ['vote', 'votes'])}</span>
         </header>
         <div className="usertext" dangerouslySetInnerHTML={{ __html: this.props.comment.body_html }} />
-        {comment.replies.map(comm => <Comment key={comm.id} comment={comm} op={this.props.op} />)}
+        {comment.replies.map(comm =>
+          <Comment
+            key={comm.id}
+            comment={comm}
+            op={this.props.op}
+            permalink={this.props.permalink}
+          />)}
+        {continueThread}
       </div>
     );
   }
@@ -34,6 +52,7 @@ class Comment extends React.Component {
 Comment.propTypes = {
   comment: PropTypes.object,
   op: PropTypes.string,
+  permalink: PropTypes.string,
 };
 
 export default Comment;

@@ -29,7 +29,11 @@ class FullPost extends React.Component {
           {userText}
           <PostMedia post={this.props.post} />
         </header>
-        <Comments comments={this.props.post.comments} op={this.props.post.author.name} />
+        <Comments
+          comments={this.props.post.comments}
+          op={this.props.post.author.name}
+          permalink={this.props.post.permalink}
+        />
       </div>
     );
   }

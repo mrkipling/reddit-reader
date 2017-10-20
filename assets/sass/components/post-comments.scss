@@ -37,6 +37,15 @@
     }
   }
 
+  &__continue-thread {
+    background: url('/static/images/arrow-right-blue.svg') no-repeat right center;
+    display: inline-block;
+    font-size: $fontSize-small;
+    font-weight: bold;
+    padding-right: 14px;
+    text-decoration: none;
+  }
+
   & > .comment {
     margin-top: 20px;
     padding-left: 30px;

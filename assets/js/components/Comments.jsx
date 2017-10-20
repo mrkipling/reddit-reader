@@ -8,7 +8,12 @@ class Comments extends React.Component {
     return (
       <div className="post-comments">
         {this.props.comments.map(comment =>
-          <Comment key={comment.id} comment={comment} op={this.props.op} />)}
+          <Comment
+            key={comment.id}
+            comment={comment}
+            op={this.props.op}
+            permalink={this.props.permalink}
+          />)}
       </div>
     );
   }
@@ -17,6 +22,7 @@ class Comments extends React.Component {
 Comments.propTypes = {
   comments: PropTypes.array,
   op: PropTypes.string,
+  permalink: PropTypes.string,
 };
 
 export default Comments;
