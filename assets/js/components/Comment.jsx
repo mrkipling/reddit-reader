@@ -14,6 +14,13 @@ class Comment extends React.Component {
       authorCssClass += ' is-op';
     }
 
+    const moreComments = (comment.replies._more && comment.replies._more.children.length) ? (
+      <div className="comment__more-comments">
+        load more comments
+        <span> ({comment.replies._more.count} replies)</span>
+      </div>
+    ) : null;
+
     const continueThread = (!comment.replies.length && comment.replies._query.comment) ? (
       <a
         className="comment__continue-thread"
@@ -43,6 +50,7 @@ class Comment extends React.Component {
             op={this.props.op}
             permalink={this.props.permalink}
           />)}
+        {moreComments}
         {continueThread}
       </div>
     );

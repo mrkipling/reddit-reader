@@ -37,6 +37,23 @@
     }
   }
 
+  &__more-comments {
+    color: $color-anchor;
+    font-size: $fontSize-small;
+    font-weight: bold;
+    margin: 10px 0;
+
+    &:hover {
+      color: $color-anchor-hover;
+      cursor: pointer;
+    }
+
+    span {
+      color: $color-text-light;
+      font-weight: normal;
+    }
+  }
+
   &__continue-thread {
     background: url('/static/images/arrow-right-blue.svg') no-repeat right center;
     display: inline-block;
