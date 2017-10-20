@@ -13,10 +13,10 @@ $breakpoint-tablet: 768px;
 $color-text: #444;
 $color-text-light: #999;
 
-$color-anchor: #1856ff;
-$color-anchor-hover: #0030b1;
-$color-anchor-visited: #980ce8;
-$color-anchor-active: #ff0302;
+$color-anchor: #277bff;
+$color-anchor-hover: darken($color-anchor, 10%);
+$color-anchor-visited: #b748ec;
+$color-anchor-active: #ff277d;
 
 $color-error: #ff0302;
 $color-border: #ccc;

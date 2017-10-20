@@ -1,3 +1,19 @@
+a {
+  color: $color-anchor;
+
+  &:hover {
+    color: $color-anchor-hover;
+  }
+
+  &:visited {
+    color: $color-anchor-visited;
+  }
+
+  &:active {
+    color: $color-anchor-active;
+  }
+}
+
 .usertext {
 
   /* spacing */
