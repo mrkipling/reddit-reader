@@ -20,6 +20,15 @@
       &.is-op {
         color: #277bff;
       }
+
+      a {
+        color: $color-text;
+        text-decoration: none;
+
+        &:hover {
+          color: #000;
+        }
+      }
     }
 
     &__votes {

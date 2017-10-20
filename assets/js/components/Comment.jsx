@@ -17,7 +17,11 @@ class Comment extends React.Component {
     return (
       <div className="comment">
         <header className="comment__header">
-          <span className={authorCssClass}>{this.props.comment.author.name}</span>
+          <span className={authorCssClass}>
+            <a href={'https://www.reddit.com/u/' + this.props.comment.author.name}>
+              {this.props.comment.author.name}
+            </a>
+          </span>
           <span className="comment__header__votes">{score + ' ' + plural(score, ['vote', 'votes'])}</span>
         </header>
         <div className="usertext" dangerouslySetInnerHTML={{ __html: this.props.comment.body_html }} />
