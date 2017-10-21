@@ -25,7 +25,7 @@ export const fetchMoreCommentsSuccess = (commentId, fetchedComments) => ({
 });
 
 export const fetchMoreComments = comment => (dispatch) => {
-  comment.replies.fetch_more(comment.replies._more.count)
+  comment.replies.fetchMore(comment.replies._more.count)
          .then(fetchedComments =>
            dispatch(fetchMoreCommentsSuccess(comment.id, fetchedComments)));
 };
