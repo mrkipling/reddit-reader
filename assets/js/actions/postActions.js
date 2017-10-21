@@ -1,5 +1,6 @@
 import { client } from '../utils';
 import { loadingStart, loadingEnd } from './loadingActions';
+import { resetMoreComments } from './moreCommentsActions';
 
 const reddit = client.connect();
 
@@ -14,6 +15,7 @@ export const fetchPost = postId => (dispatch) => {
                .expandReplies({ limit: 0, depth: 0 })
                .then((post) => {
                  dispatch(loadingEnd());
+                 dispatch(resetMoreComments());
                  dispatch(fetchPostSuccess(post));
                });
 };

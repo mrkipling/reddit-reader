@@ -29,6 +29,9 @@ export default (state = [], action) => {
     ];
   }
 
+  case 'RESET_MORE_COMMENTS':
+    return [];
+
   default:
     return state;
   }

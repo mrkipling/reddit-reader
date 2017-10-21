@@ -9,3 +9,11 @@ export const fetchMoreComments = comment => (dispatch) => {
          .then(fetchedComments =>
            dispatch(fetchMoreCommentsSuccess(comment.id, fetchedComments)));
 };
+
+export const resetMoreCommentsSuccess = () => ({
+  type: 'RESET_MORE_COMMENTS',
+});
+
+export const resetMoreComments = () => (dispatch) => {
+  dispatch(resetMoreCommentsSuccess());
+};
