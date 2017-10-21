@@ -16,13 +16,12 @@ class Comment extends React.Component {
       authorCssClass += ' is-op';
     }
 
-    const moreComments = (comment.replies && comment.replies._more && comment.replies._more.children.length) ? (
+    const moreComments = (comment.replies && !comment.replies.isFinished) ? (
       <div
         className="comment__more-comments"
         onClick={() => this.props.fetchMoreComments(comment)}
       >
         load more comments
-        <span> ({comment.replies._more.count} replies)</span>
       </div>
     ) : null;
 
