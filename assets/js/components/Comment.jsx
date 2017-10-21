@@ -38,17 +38,7 @@ class Comment extends React.Component {
       fetchedMoreComments = null;
     }
 
-    const fetchedIsDone = fetchedMoreComments && fetchedMoreComments.isFinished;
-    const moreComments = (comment.replies && !comment.replies.isFinished && !fetchedIsDone) ? (
-      <div
-        className="comment__more-comments"
-        onClick={() => this.props.fetchMoreComments(comment)}
-      >
-        load more comments
-      </div>
-    ) : null;
-
-    const continueThread = (comment.replies && !comment.replies.length && comment.replies._query.comment) ? (
+    const continueThread = (comment.replies && !comment.replies.length && !comment.replies.isFinished && comment.replies._query.comment) ? (
       <a
         className="comment__continue-thread"
         href={'https://www.reddit.com/' + this.props.permalink + comment.replies._query.comment}
@@ -57,6 +47,16 @@ class Comment extends React.Component {
       >
         Continue this thread
       </a>
+    ) : null;
+
+    const fetchedIsDone = fetchedMoreComments && fetchedMoreComments.isFinished;
+    const moreComments = (continueThread === null && comment.replies && !comment.replies.isFinished && !fetchedIsDone) ? (
+      <div
+        className="comment__more-comments"
+        onClick={() => this.props.fetchMoreComments(comment)}
+      >
+        load more comments
+      </div>
     ) : null;
 
     return (
