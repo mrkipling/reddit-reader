@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { plural } from '../utils';
-import { fetchMoreComments } from '../actions/postActions';
+import { fetchMoreComments } from '../actions/moreCommentsActions';
 
 class Comment extends React.Component {
   render() {
@@ -36,6 +36,26 @@ class Comment extends React.Component {
       </a>
     ) : null;
 
+    let fetchedMoreComments = this.props.moreComments
+                                  .filter(mc => mc.commentId === comment.id);
+
+    if (fetchedMoreComments.length) {
+      fetchedMoreComments = fetchedMoreComments[0]
+        .comments
+        .map(comm => (
+          <Comment
+            key={comm.id}
+            comment={comm}
+            op={this.props.op}
+            permalink={this.props.permalink}
+            moreComments={this.props.moreComments}
+            fetchMoreComments={this.props.fetchMoreComments}
+          />
+        ));
+    } else {
+      fetchedMoreComments = null;
+    }
+
     return (
       <div className="comment">
         <header className="comment__header">
@@ -53,9 +73,11 @@ class Comment extends React.Component {
             comment={comm}
             op={this.props.op}
             permalink={this.props.permalink}
+            moreComments={this.props.moreComments}
             fetchMoreComments={this.props.fetchMoreComments}
           />
-        ))}
+         ))}
+        {fetchedMoreComments}
         {moreComments}
         {continueThread}
       </div>
@@ -67,10 +89,12 @@ Comment.propTypes = {
   comment: PropTypes.object,
   op: PropTypes.string,
   permalink: PropTypes.string,
+  moreComments: PropTypes.array,
   fetchMoreComments: PropTypes.func,
 };
 
-const mapStateToProps = () => ({
+const mapStateToProps = state => ({
+  moreComments: state.moreComments,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -4,6 +4,7 @@ import activeSubreddit from './activeSubreddit';
 import subreddits from './subreddits';
 import subreddit from './subreddit';
 import post from './post';
+import moreComments from './moreComments';
 import loading from './loading';
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
   subreddits,
   subreddit,
   post,
+  moreComments,
   loading,
 });
