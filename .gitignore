@@ -2,3 +2,4 @@ package-lock.json
 node_modules/
 site/
 assets/js/settings.js
+TODO.md
