@@ -16,7 +16,30 @@ class Comment extends React.Component {
       authorCssClass += ' is-op';
     }
 
-    const moreComments = (comment.replies && !comment.replies.isFinished) ? (
+    let fetchedMoreComments = this.props.moreComments
+                                  .filter(mc => mc.commentId === comment.id);
+
+    let eleFetchedMoreComments = null;
+
+    if (fetchedMoreComments.length) {
+      fetchedMoreComments = fetchedMoreComments[0].comments;
+      eleFetchedMoreComments = fetchedMoreComments
+        .map(comm => (
+          <Comment
+            key={comm.id}
+            comment={comm}
+            op={this.props.op}
+            permalink={this.props.permalink}
+            moreComments={this.props.moreComments}
+            fetchMoreComments={this.props.fetchMoreComments}
+          />
+        ));
+    } else {
+      fetchedMoreComments = null;
+    }
+
+    const fetchedIsDone = fetchedMoreComments && fetchedMoreComments.isFinished;
+    const moreComments = (comment.replies && !comment.replies.isFinished && !fetchedIsDone) ? (
       <div
         className="comment__more-comments"
         onClick={() => this.props.fetchMoreComments(comment)}
@@ -35,26 +58,6 @@ class Comment extends React.Component {
         Continue this thread
       </a>
     ) : null;
-
-    let fetchedMoreComments = this.props.moreComments
-                                  .filter(mc => mc.commentId === comment.id);
-
-    if (fetchedMoreComments.length) {
-      fetchedMoreComments = fetchedMoreComments[0]
-        .comments
-        .map(comm => (
-          <Comment
-            key={comm.id}
-            comment={comm}
-            op={this.props.op}
-            permalink={this.props.permalink}
-            moreComments={this.props.moreComments}
-            fetchMoreComments={this.props.fetchMoreComments}
-          />
-        ));
-    } else {
-      fetchedMoreComments = null;
-    }
 
     return (
       <div className="comment">
@@ -77,7 +80,7 @@ class Comment extends React.Component {
             fetchMoreComments={this.props.fetchMoreComments}
           />
          ))}
-        {fetchedMoreComments}
+        {eleFetchedMoreComments}
         {moreComments}
         {continueThread}
       </div>
