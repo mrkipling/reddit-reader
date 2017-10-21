@@ -5,14 +5,28 @@
 .comment {
   margin-top: 20px;
   padding-top: 10px;
+  position: relative;
 
   &:first-child {
     margin-top: 0;
   }
 
+  &:before {
+    background-color: #ddd;
+    bottom: 0;
+    content: '';
+    left: 15px;
+    position: absolute;
+    top: 15px;
+    width: 1px;
+  }
+
   &__header {
+    background-color: #fff;
     font-size: $fontSize-small;
-    margin-bottom: 5px;
+    padding-bottom: 5px;
+    position: relative;
+    z-index: 1;
 
     &__author {
       font-weight: bold;
@@ -37,11 +51,31 @@
     }
   }
 
+  .usertext {
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+
+    &:after {
+      background-color: #fff;
+      bottom: -20px;
+      content: '';
+      display: block;
+      height: 20px;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+
   &__more-comments {
+    background-color: #fff;
     color: $color-anchor;
     font-size: $fontSize-small;
     font-weight: bold;
-    margin: 10px 0;
+    padding: 10px 0;
+    position: relative;
+    z-index: 1;
 
     &:hover {
       color: $color-anchor-hover;
