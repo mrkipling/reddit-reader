@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { plural, timeAgo, formatNumber } from '../utils';
 import { fetchMoreComments } from '../actions/moreCommentsActions';
-import { voteComment } from '../actions/voteActions';
+import { voteComment } from '../actions/votesActions';
 
 class Comment extends React.Component {
   render() {
