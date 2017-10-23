@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { plural, timeAgo } from '../utils';
+import { plural, timeAgo, formatNumber } from '../utils';
 import { fetchMoreComments } from '../actions/moreCommentsActions';
 
 class Comment extends React.Component {
@@ -93,7 +93,7 @@ class Comment extends React.Component {
             </a>
           </span>
           {flair}
-          <span className="comment__header__votes">{score + ' ' + plural(score, ['vote', 'votes'])}</span>
+          <span className="comment__header__votes">{formatNumber(score) + ' ' + plural(score, ['vote', 'votes'])}</span>
           <span className="comment__header__time"> <a href={'https://www.reddit.com' + this.props.permalink + comment.id + '/'} target="_blank" rel="noopener noreferrer">{timeAgo(comment.created_utc)}</a></span>
           {edited}
           {gold}
