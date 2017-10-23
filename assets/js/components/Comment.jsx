@@ -86,6 +86,10 @@ class Comment extends React.Component {
 
     return (
       <div className="comment">
+        <div className="comment__votes">
+          <div className="comment__votes__up" />
+          <div className="comment__votes__down" />
+        </div>
         <header className="comment__header">
           <span className={authorCssClass}>
             <a href={'https://www.reddit.com/u/' + comment.author.name}>

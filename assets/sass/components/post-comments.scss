@@ -3,7 +3,9 @@
 }
 
 .comment {
+  margin-left: -22px;
   margin-top: 20px;
+  padding-left: 22px;
   padding-top: 10px;
   position: relative;
 
@@ -15,10 +17,38 @@
     background-color: #ddd;
     bottom: 0;
     content: '';
+    display: none;
     left: 15px;
     position: absolute;
     top: 15px;
     width: 1px;
+  }
+
+  &__votes {
+    left: 0;
+    position: absolute;
+    top: 14px;
+
+    &__up,
+    &__down {
+      background-repeat: norepeat;
+      background-size: 16px 14px;
+      height: 14px;
+      width: 16px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &__up {
+      background-image: url('/static/images/upvote.svg');
+    }
+
+    &__down {
+      background-image: url('/static/images/downvote.svg');
+      margin-top: 2px;
+    }
   }
 
   &__header {
@@ -115,7 +145,15 @@
 
   & > .comment {
     margin-top: 20px;
-    padding-left: 30px;
+    padding-left: 48px;
     padding-right: 0;
+
+    &:before {
+      display: block;
+    }
+
+    .comment__votes {
+      left: 26px;
+    }
   }
 }
