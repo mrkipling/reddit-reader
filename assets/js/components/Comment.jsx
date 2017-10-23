@@ -29,6 +29,9 @@ class Comment extends React.Component {
       </span>
     ) : null;
 
+    const upvoteClass = 'comment__votes__up' + (comment.likes ? ' is-active' : '');
+    const downvoteClass = 'comment__votes__down' + ((comment.likes !== null && !comment.likes) ? ' is-active' : '');
+
     let gold = null;
 
     if (comment.gilded) {
@@ -87,8 +90,8 @@ class Comment extends React.Component {
     return (
       <div className="comment">
         <div className="comment__votes">
-          <div className="comment__votes__up" />
-          <div className="comment__votes__down" />
+          <div className={upvoteClass} />
+          <div className={downvoteClass} />
         </div>
         <header className="comment__header">
           <span className={authorCssClass}>

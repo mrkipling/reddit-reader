@@ -43,11 +43,19 @@
 
     &__up {
       background-image: url('/static/images/upvote.svg');
+
+      &.is-active {
+        background-image: url('/static/images/upvote-active.svg');
+      }
     }
 
     &__down {
       background-image: url('/static/images/downvote.svg');
       margin-top: 2px;
+
+      &.is-active {
+        background-image: url('/static/images/downvote-active.svg');
+      }
     }
   }
 
