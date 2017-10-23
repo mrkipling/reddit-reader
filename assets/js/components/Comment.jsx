@@ -89,7 +89,7 @@ class Comment extends React.Component {
             </a>
           </span>
           <span className="comment__header__votes">{score + ' ' + plural(score, ['vote', 'votes'])}</span>
-          <span className="comment__header__time"> {timeAgo(comment.created_utc)}</span>
+          <span className="comment__header__time"> <a href={'https://www.reddit.com' + this.props.permalink + comment.id + '/'} target="_blank" rel="noopener noreferrer">{timeAgo(comment.created_utc)}</a></span>
           {edited}
           {gold}
         </header>
@@ -103,7 +103,7 @@ class Comment extends React.Component {
             moreComments={this.props.moreComments}
             fetchMoreComments={this.props.fetchMoreComments}
           />
-         ))}
+        ))}
         {eleFetchedMoreComments}
         {moreComments}
         {continueThread}

@@ -29,20 +29,24 @@
     position: relative;
     z-index: 1;
 
+    a {
+      color: $color-text-light;
+      text-decoration: none;
+
+      &:hover {
+        color: #000;
+      }
+    }
+
     &__author {
       font-weight: bold;
 
-      &.is-op {
-        color: #277bff;
-      }
-
       a {
         color: $color-text;
-        text-decoration: none;
+      }
 
-        &:hover {
-          color: #000;
-        }
+      &.is-op {
+        color: #277bff;
       }
     }
 
