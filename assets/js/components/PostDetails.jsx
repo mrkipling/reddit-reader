@@ -4,9 +4,13 @@ import { timeAgo, formatNumber } from '../utils';
 
 class PostDetails extends React.Component {
   render() {
+    const score = !this.props.hideScore ? (
+      <li className="post-details__item post-details__item--votes">{formatNumber(this.props.post.score)}</li>
+    ) : null;
+
     return (
       <ul className="post-details u-cf">
-        <li className="post-details__item post-details__item--votes">{formatNumber(this.props.post.ups)}</li>
+        {score}
         <li className="post-details__item post-details__item--comments">{formatNumber(this.props.post.num_comments)}</li>
         <li className="post-details__item post-details__item--time">
           <a href={'https://www.reddit.com' + this.props.post.permalink} target="_blank" rel="noopener noreferrer">
@@ -23,6 +27,7 @@ class PostDetails extends React.Component {
 
 PostDetails.propTypes = {
   post: PropTypes.object,
+  hideScore: PropTypes.bool,
 };
 
 export default PostDetails;

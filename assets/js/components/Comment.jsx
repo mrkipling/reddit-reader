@@ -30,7 +30,7 @@ class Comment extends React.Component {
 
     let commentLikes = comment.likes;
     const customVote = this.props.votes
-                         .filter(cv => cv.commentId === comment.id);
+                         .filter(cv => cv.contentId === comment.id);
 
     if (customVote.length) {
       if (customVote[0].direction === 'unvote') {

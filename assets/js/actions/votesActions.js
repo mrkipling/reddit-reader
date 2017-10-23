@@ -1,6 +1,6 @@
-export const voteCommentSuccess = (commentId, direction) => ({
+export const voteCommentSuccess = (contentId, direction) => ({
   type: 'VOTE_COMMENT_SUCCESS',
-  commentId,
+  contentId,
   direction,
 });
 

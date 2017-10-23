@@ -5,12 +5,12 @@ export default (state = [], action) => {
       let existingIndex = null;
 
       const obj = {
-        commentId: action.commentId,
+        contentId: action.contentId,
         direction: action.direction,
       };
 
       for (let i = 0; i < state.length; i += 1) {
-        if (state[i].commentId === action.commentId) {
+        if (state[i].contentId === action.contentId) {
           existingIndex = i;
           break;
         }
