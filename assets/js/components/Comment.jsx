@@ -29,11 +29,11 @@ class Comment extends React.Component {
 
     if (comment.gilded) {
       gold = comment.gilded > 1 ? (
-        <span className="gold gold--multi">
+        <span className="gold gold--multi" title="Redditor was gifted gold for this submission">
           <span className="gold__amount">{'x' + comment.gilded}</span>
         </span>
       ) : (
-        <span className="gold" />
+        <span className="gold" title="Redditor was gifted gold for this submission" />
       );
     }
 
