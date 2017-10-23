@@ -1,6 +1,7 @@
 import { client } from '../utils';
 import { loadingStart, loadingEnd } from './loadingActions';
 import { resetMoreComments } from './moreCommentsActions';
+import { resetVotes } from './votesActions';
 
 const reddit = client.connect();
 
@@ -16,6 +17,7 @@ export const fetchPost = postId => (dispatch) => {
                .then((post) => {
                  dispatch(loadingEnd());
                  dispatch(resetMoreComments());
+                 dispatch(resetVotes());
                  dispatch(fetchPostSuccess(post));
                });
 };

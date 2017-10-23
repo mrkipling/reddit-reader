@@ -19,3 +19,11 @@ export const vote = (content, contentLikes, up) => (dispatch) => {
   content.downvote();
   return dispatch(voteSuccess(content.id, 'downvote'));
 };
+
+export const resetVotesSuccess = () => ({
+  type: 'RESET_VOTES',
+});
+
+export const resetVotes = () => (dispatch) => {
+  dispatch(resetVotesSuccess());
+};
