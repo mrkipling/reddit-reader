@@ -23,6 +23,7 @@
 
   &__header {
     background-color: #fff;
+    color: $color-text-light;
     font-size: $fontSize-small;
     padding-bottom: 5px;
     position: relative;
@@ -46,7 +47,6 @@
     }
 
     &__votes {
-      color: #777;
       margin-left: 5px;
     }
 
