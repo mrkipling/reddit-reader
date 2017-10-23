@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { plural, timeAgo, formatNumber } from '../utils';
 import { fetchMoreComments } from '../actions/moreCommentsActions';
-import { voteComment } from '../actions/votesActions';
+import { vote } from '../actions/votesActions';
 
 class Comment extends React.Component {
   render() {
@@ -111,8 +111,8 @@ class Comment extends React.Component {
     return (
       <div className="comment">
         <div className="comment__votes">
-          <div className={upvoteClass} onClick={() => this.props.voteComment(comment, commentLikes, true)} />
-          <div className={downvoteClass} onClick={() => this.props.voteComment(comment, commentLikes, false)} />
+          <div className={upvoteClass} onClick={() => this.props.vote(comment, commentLikes, true)} />
+          <div className={downvoteClass} onClick={() => this.props.vote(comment, commentLikes, false)} />
         </div>
         <header className="comment__header">
           <span className={authorCssClass}>
@@ -136,7 +136,7 @@ class Comment extends React.Component {
             moreComments={this.props.moreComments}
             votes={this.props.votes}
             fetchMoreComments={this.props.fetchMoreComments}
-            voteComment={this.props.voteComment}
+            vote={this.props.vote}
           />
         ))}
         {eleFetchedMoreComments}
@@ -154,7 +154,7 @@ Comment.propTypes = {
   moreComments: PropTypes.array,
   votes: PropTypes.array,
   fetchMoreComments: PropTypes.func,
-  voteComment: PropTypes.func,
+  vote: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -166,8 +166,8 @@ const mapDispatchToProps = dispatch => ({
   fetchMoreComments: comment =>
     dispatch(fetchMoreComments(comment)),
 
-  voteComment: (comment, likes, up) =>
-    dispatch(voteComment(comment, likes, up)),
+  vote: (comment, likes, up) =>
+    dispatch(vote(comment, likes, up)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comment);

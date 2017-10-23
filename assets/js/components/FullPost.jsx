@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { voteComment } from '../actions/votesActions';
+import { vote } from '../actions/votesActions';
 import { formatNumber } from '../utils';
 
 import Comments from './Comments';
@@ -85,7 +85,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   vote: (post, likes, up) =>
-    dispatch(voteComment(post, likes, up)),
+    dispatch(vote(post, likes, up)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FullPost);

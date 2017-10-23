@@ -1,7 +1,7 @@
 export default (state = [], action) => {
   switch (action.type) {
 
-    case 'VOTE_COMMENT_SUCCESS': {
+    case 'VOTE_SUCCESS': {
       let existingIndex = null;
 
       const obj = {
