@@ -80,7 +80,9 @@ class Comment extends React.Component {
             op={this.props.op}
             permalink={this.props.permalink}
             moreComments={this.props.moreComments}
+            votes={this.props.votes}
             fetchMoreComments={this.props.fetchMoreComments}
+            vote={this.props.vote}
           />
         ));
     } else {
