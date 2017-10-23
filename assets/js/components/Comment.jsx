@@ -30,8 +30,20 @@ class Comment extends React.Component {
       </span>
     ) : null;
 
-    const upvoteClass = 'comment__votes__up' + (comment.likes ? ' is-active' : '');
-    const downvoteClass = 'comment__votes__down' + ((comment.likes !== null && !comment.likes) ? ' is-active' : '');
+    let commentLikes = comment.likes;
+    const customVote = this.props.votes
+                         .filter(cv => cv.commentId === comment.id);
+
+    if (customVote.length) {
+      if (customVote[0].direction === 'unvote') {
+        commentLikes = null;
+      } else {
+        commentLikes = customVote[0].direction === 'upvote';
+      }
+    }
+
+    const upvoteClass = 'comment__votes__up' + (commentLikes ? ' is-active' : '');
+    const downvoteClass = 'comment__votes__down' + ((commentLikes !== null && !commentLikes) ? ' is-active' : '');
 
     let gold = null;
 
@@ -91,8 +103,8 @@ class Comment extends React.Component {
     return (
       <div className="comment">
         <div className="comment__votes">
-          <div className={upvoteClass} onClick={() => this.props.voteComment(comment, true)} />
-          <div className={downvoteClass} onClick={() => this.props.voteComment(comment, false)} />
+          <div className={upvoteClass} onClick={() => this.props.voteComment(comment, commentLikes, true)} />
+          <div className={downvoteClass} onClick={() => this.props.voteComment(comment, commentLikes, false)} />
         </div>
         <header className="comment__header">
           <span className={authorCssClass}>
@@ -114,6 +126,7 @@ class Comment extends React.Component {
             op={this.props.op}
             permalink={this.props.permalink}
             moreComments={this.props.moreComments}
+            votes={this.props.votes}
             fetchMoreComments={this.props.fetchMoreComments}
             voteComment={this.props.voteComment}
           />
@@ -131,20 +144,22 @@ Comment.propTypes = {
   op: PropTypes.string,
   permalink: PropTypes.string,
   moreComments: PropTypes.array,
+  votes: PropTypes.array,
   fetchMoreComments: PropTypes.func,
   voteComment: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
   moreComments: state.moreComments,
+  votes: state.votes,
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchMoreComments: comment =>
     dispatch(fetchMoreComments(comment)),
 
-  voteComment: (comment, up) =>
-    dispatch(voteComment(comment, up)),
+  voteComment: (comment, likes, up) =>
+    dispatch(voteComment(comment, likes, up)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comment);

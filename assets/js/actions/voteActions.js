@@ -1,21 +1,21 @@
-export const voteCommentSuccess = (comment, direction) => ({
+export const voteCommentSuccess = (commentId, direction) => ({
   type: 'VOTE_COMMENT_SUCCESS',
-  comment,
+  commentId,
   direction,
 });
 
-export const voteComment = (comment, up) => (dispatch) => {
+export const voteComment = (comment, commentLikes, up) => (dispatch) => {
   // unvote
-  if ((up && comment.likes) || (!up && comment.likes !== null && comment.likes === false)) {
-    return comment.unvote().then(comm =>
-      dispatch(voteCommentSuccess(comm, 'unvote')));
+  if ((up && commentLikes) || (!up && commentLikes !== null && commentLikes === false)) {
+    return comment.unvote().then(() =>
+      dispatch(voteCommentSuccess(comment.id, 'unvote')));
   }
 
   if (up) {
-    return comment.upvote().then(comm =>
-      dispatch(voteCommentSuccess(comm, 'upvote')));
+    return comment.upvote().then(() =>
+      dispatch(voteCommentSuccess(comment.id, 'upvote')));
   }
 
-  return comment.downvote().then(comm =>
-    dispatch(voteCommentSuccess(comm, 'downvote')));
+  return comment.downvote().then(() =>
+    dispatch(voteCommentSuccess(comment.id, 'downvote')));
 };

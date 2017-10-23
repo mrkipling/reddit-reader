@@ -6,7 +6,7 @@ export default (state = [], action) => {
 
       const obj = {
         commentId: action.commentId,
-        comments: action.fetchedComments,
+        direction: action.direction,
       };
 
       for (let i = 0; i < state.length; i += 1) {
