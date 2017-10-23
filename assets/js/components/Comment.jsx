@@ -16,6 +16,10 @@ class Comment extends React.Component {
       authorCssClass += ' is-op';
     }
 
+    const flair = comment.author_flair_text ? (
+      <span className="flair">{comment.author_flair_text}</span>
+    ) : null;
+
     const edited = comment.edited ? (
       <span
         className="comment__header__edited"
@@ -88,6 +92,7 @@ class Comment extends React.Component {
               {comment.author.name}
             </a>
           </span>
+          {flair}
           <span className="comment__header__votes">{score + ' ' + plural(score, ['vote', 'votes'])}</span>
           <span className="comment__header__time"> <a href={'https://www.reddit.com' + this.props.permalink + comment.id + '/'} target="_blank" rel="noopener noreferrer">{timeAgo(comment.created_utc)}</a></span>
           {edited}
