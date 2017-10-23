@@ -1,10 +1,7 @@
-/* eslint-disable */
-
 export default (state = [], action) => {
   switch (action.type) {
 
     case 'VOTE_COMMENT_SUCCESS': {
-      /**
       let existingIndex = null;
 
       const obj = {
@@ -30,8 +27,6 @@ export default (state = [], action) => {
         ...state,
         obj,
       ];
-      **/
-      return state;
     }
 
     case 'RESET_VOTES':
