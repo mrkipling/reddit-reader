@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { plural, timeAgo, formatNumber } from '../utils';
 import { fetchMoreComments } from '../actions/moreCommentsActions';
+import { voteComment } from '../actions/voteActions';
 
 class Comment extends React.Component {
   render() {
@@ -90,8 +91,8 @@ class Comment extends React.Component {
     return (
       <div className="comment">
         <div className="comment__votes">
-          <div className={upvoteClass} />
-          <div className={downvoteClass} />
+          <div className={upvoteClass} onClick={() => this.props.voteComment(comment, true)} />
+          <div className={downvoteClass} onClick={() => this.props.voteComment(comment, false)} />
         </div>
         <header className="comment__header">
           <span className={authorCssClass}>
@@ -114,6 +115,7 @@ class Comment extends React.Component {
             permalink={this.props.permalink}
             moreComments={this.props.moreComments}
             fetchMoreComments={this.props.fetchMoreComments}
+            voteComment={this.props.voteComment}
           />
         ))}
         {eleFetchedMoreComments}
@@ -130,6 +132,7 @@ Comment.propTypes = {
   permalink: PropTypes.string,
   moreComments: PropTypes.array,
   fetchMoreComments: PropTypes.func,
+  voteComment: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -139,6 +142,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchMoreComments: comment =>
     dispatch(fetchMoreComments(comment)),
+
+  voteComment: (comment, up) =>
+    dispatch(voteComment(comment, up)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comment);
