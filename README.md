@@ -1,4 +1,4 @@
-# Reddit Reader
+# SnooFlaps
 
 This is a Reddit client that uses React and Redux. This is a learning exercise and a work in progress.
 
