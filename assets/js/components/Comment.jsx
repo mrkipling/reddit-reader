@@ -9,8 +9,6 @@ import { voteComment } from '../actions/votesActions';
 class Comment extends React.Component {
   render() {
     const comment = this.props.comment;
-    const score = comment.score;
-
     let authorCssClass = 'comment__header__author';
 
     if (this.props.op === comment.author.name) {
@@ -44,6 +42,16 @@ class Comment extends React.Component {
 
     const upvoteClass = 'comment__votes__up' + (commentLikes ? ' is-active' : '');
     const downvoteClass = 'comment__votes__down' + ((commentLikes !== null && !commentLikes) ? ' is-active' : '');
+
+    let score = comment.score;
+
+    if (commentLikes !== null) {
+      if (commentLikes) {
+        score += 1;
+      } else {
+        score -= 1;
+      }
+    }
 
     let gold = null;
 
