@@ -16,6 +16,18 @@ class Comment extends React.Component {
       authorCssClass += ' is-op';
     }
 
+    let gold = null;
+
+    if (comment.gilded) {
+      gold = comment.gilded > 1 ? (
+        <span className="gold gold--multi">
+          <span className="gold__amount">{'x' + comment.gilded}</span>
+        </span>
+      ) : (
+        <span className="gold" />
+      );
+    }
+
     let fetchedMoreComments = this.props.moreComments
                                   .filter(mc => mc.commentId === comment.id);
 
@@ -68,6 +80,7 @@ class Comment extends React.Component {
             </a>
           </span>
           <span className="comment__header__votes">{score + ' ' + plural(score, ['vote', 'votes'])}</span>
+          {gold}
         </header>
         <div className="usertext" dangerouslySetInnerHTML={{ __html: this.props.comment.body_html }} />
         {comment.replies && comment.replies.map(comm => (
