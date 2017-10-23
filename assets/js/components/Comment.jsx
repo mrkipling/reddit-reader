@@ -8,7 +8,7 @@ import { fetchMoreComments } from '../actions/moreCommentsActions';
 class Comment extends React.Component {
   render() {
     const comment = this.props.comment;
-    const score = this.props.comment.score;
+    const score = comment.score;
 
     let authorCssClass = 'comment__header__author';
 
@@ -75,15 +75,15 @@ class Comment extends React.Component {
       <div className="comment">
         <header className="comment__header">
           <span className={authorCssClass}>
-            <a href={'https://www.reddit.com/u/' + this.props.comment.author.name}>
-              {this.props.comment.author.name}
+            <a href={'https://www.reddit.com/u/' + comment.author.name}>
+              {comment.author.name}
             </a>
           </span>
           <span className="comment__header__votes">{score + ' ' + plural(score, ['vote', 'votes'])}</span>
           <span className="comment__header__time"> {timeAgo(comment.created_utc)}</span>
           {gold}
         </header>
-        <div className="usertext" dangerouslySetInnerHTML={{ __html: this.props.comment.body_html }} />
+        <div className="usertext" dangerouslySetInnerHTML={{ __html: comment.body_html }} />
         {comment.replies && comment.replies.map(comm => (
           <Comment
             key={comm.id}
