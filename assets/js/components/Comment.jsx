@@ -16,6 +16,15 @@ class Comment extends React.Component {
       authorCssClass += ' is-op';
     }
 
+    const edited = comment.edited ? (
+      <span
+        className="comment__header__edited"
+        title={'last edited ' + timeAgo(comment.edited)}
+      >
+        *
+      </span>
+    ) : null;
+
     let gold = null;
 
     if (comment.gilded) {
@@ -81,6 +90,7 @@ class Comment extends React.Component {
           </span>
           <span className="comment__header__votes">{score + ' ' + plural(score, ['vote', 'votes'])}</span>
           <span className="comment__header__time"> {timeAgo(comment.created_utc)}</span>
+          {edited}
           {gold}
         </header>
         <div className="usertext" dangerouslySetInnerHTML={{ __html: comment.body_html }} />
