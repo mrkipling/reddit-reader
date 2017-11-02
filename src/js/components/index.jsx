@@ -2,6 +2,7 @@ import FullPost from './FullPost/FullPost';
 import Post from './Post/Post';
 import Posts from './Posts/Posts';
 import PostDetails from './PostDetails/PostDetails';
+import PostMedia from './PostMedia/PostMedia';
 import Subreddit from './Subreddits/Subreddit';
 import Subreddits from './Subreddits/Subreddits';
 
@@ -10,6 +11,7 @@ export {
   Post,
   Posts,
   PostDetails,
+  PostMedia,
   Subreddit,
   Subreddits,
 };

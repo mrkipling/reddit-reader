@@ -6,8 +6,11 @@ import { vote } from '../../actions/votesActions';
 import { formatNumber } from '../../utils';
 
 import Comments from '../Comments';
-import PostMedia from '../PostMedia';
-import { PostDetails } from '../../components';
+
+import {
+  PostDetails,
+  PostMedia,
+} from '../../components';
 
 import CSSModules from 'react-css-modules';
 import styles from './FullPost.scss';

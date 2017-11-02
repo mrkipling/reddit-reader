@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import CSSModules from 'react-css-modules';
+import styles from './PostMedia.scss';
+
 class PostMedia extends React.Component {
   render() {
     const url = this.props.post.url;
@@ -13,7 +16,7 @@ class PostMedia extends React.Component {
     }
 
     return (
-      <img className="post-image" src={url} alt={this.props.post.title} />
+      <img styleName="post-image" src={url} alt={this.props.post.title} />
     );
   }
 }
@@ -22,4 +25,4 @@ PostMedia.propTypes = {
   post: PropTypes.object,
 };
 
-export default PostMedia;
+export default CSSModules(PostMedia, styles);
