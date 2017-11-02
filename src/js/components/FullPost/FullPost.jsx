@@ -2,13 +2,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { vote } from '../actions/votesActions';
-import { formatNumber } from '../utils';
+import { vote } from '../../actions/votesActions';
+import { formatNumber } from '../../utils';
 
-import Comments from './Comments';
-import PostMedia from './PostMedia';
+import Comments from '../Comments';
+import PostMedia from '../PostMedia';
+import { PostDetails } from '../../components';
 
-import { PostDetails } from '../components';
+import CSSModules from 'react-css-modules';
+import styles from './FullPost.scss';
 
 class FullPost extends React.Component {
   render() {
@@ -23,7 +25,7 @@ class FullPost extends React.Component {
     );
 
     const userText = this.props.post.selftext ? (
-      <div className="full-post__header__text usertext" dangerouslySetInnerHTML={{ __html: this.props.post.selftext_html }} />
+      <div styleName="usertext" className="usertext" dangerouslySetInnerHTML={{ __html: this.props.post.selftext_html }} />
     ) : null;
 
     let postLikes = this.props.post.likes;
@@ -38,8 +40,8 @@ class FullPost extends React.Component {
       }
     }
 
-    const upvoteClass = 'full-post__header__votes__up' + (postLikes ? ' is-active' : '');
-    const downvoteClass = 'full-post__header__votes__down' + ((postLikes !== null && !postLikes) ? ' is-active' : '');
+    const upvoteClass = 'up' + (postLikes ? '--is-active' : '');
+    const downvoteClass = 'down' + ((postLikes !== null && !postLikes) ? '--is-active' : '');
 
     let score = this.props.post.score;
 
@@ -52,22 +54,22 @@ class FullPost extends React.Component {
     }
 
     return (
-      <div id="full-post" className="full-post">
-        <header className="full-post__header card">
-          <div className="full-post__header__votes">
-            <div className={upvoteClass} onClick={() => this.props.vote(this.props.post, postLikes, true)} />
-            <div className="full-post__header__votes__score">{formatNumber(score)}</div>
-            <div className={downvoteClass} onClick={() => this.props.vote(this.props.post, postLikes, false)} />
+      <div id="full-post" styleName="full-post">
+        <header styleName="header" className="card">
+          <div styleName="votes">
+            <div styleName={upvoteClass} onClick={() => this.props.vote(this.props.post, postLikes, true)} />
+            <div styleName="score">{formatNumber(score)}</div>
+            <div styleName={downvoteClass} onClick={() => this.props.vote(this.props.post, postLikes, false)} />
           </div>
-          <h2 className="full-post__header__title">{title}</h2>
+          <h2 styleName="title">{title}</h2>
           <PostDetails post={this.props.post} hideScore />
           {userText}
           <PostMedia post={this.props.post} />
         </header>
         <Comments
-          comments={this.props.post.comments}
-          op={this.props.post.author.name}
-          permalink={this.props.post.permalink}
+            comments={this.props.post.comments}
+            op={this.props.post.author.name}
+            permalink={this.props.post.permalink}
         />
       </div>
     );
@@ -89,4 +91,4 @@ const mapDispatchToProps = dispatch => ({
     dispatch(vote(post, likes, up)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FullPost);
+export default connect(mapStateToProps, mapDispatchToProps)(CSSModules(FullPost, styles));

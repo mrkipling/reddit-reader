@@ -1,0 +1,87 @@
+@import '../../../sass/_vars';
+
+.full-post {
+  bottom: 0;
+  left: 740px;
+  overflow-x: none;
+  overflow-y: auto;
+  padding: 10px;
+  position: fixed;
+  right: 10px;
+  top: 50px;
+}
+
+.header {
+  margin: 0 0 10px 0;
+  padding-left: 55px;
+  position: relative;
+}
+
+.up,
+.down {
+  background-repeat: norepeat;
+  background-size: 16px 14px;
+  height: 14px;
+  margin: 0 auto;
+  width: 16px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.up {
+  background-image: url('../../../assets/images/upvote.svg');
+
+  &--is-active {
+    composes: up;
+    background-image: url('../../../assets/images/upvote-active.svg');
+  }
+}
+
+.down {
+  background-image: url('../../../assets/images/downvote.svg');
+  margin-top: 2px;
+
+  &--is-active {
+    composes: down;
+    background-image: url('../../../assets/images/downvote-active.svg');
+  }
+}
+
+.votes {
+  left: 10px;
+  position: absolute;
+  top: 18px;
+  width: 34px;
+}
+
+.score {
+  color: $color-text-light;
+  font-size: $fontSize-small;
+  margin: 1px 0;
+  text-align: center;
+}
+
+.title {
+  font-size: $fontSize-large;
+  margin-bottom: 5px;
+
+  a {
+    color: $color-text;
+    text-decoration: none;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+.post-image {
+  margin-top: 10px;
+  max-width: 100%;
+}
+
+.usertext {
+  margin: 20px 0 -15px;
+}

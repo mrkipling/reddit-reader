@@ -3,9 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import AppHeader from './AppHeader';
-import FullPost from './FullPost';
 
 import {
+  FullPost,
   Posts,
   Subreddits,
 } from '../components';
