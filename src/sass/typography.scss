@@ -32,21 +32,6 @@ a {
     font-size: $fontSize-regular;
     font-family: $fontFamily-heading;
     font-weight: bold;
-
-    // EXAMPLE: makes titles different colours at different breakpoint slices
-    // Can use: at, from, to, between
-
-    @include to('s') {
-      color: pink;
-    }
-
-    @include at('m') {
-      color: red;
-    }
-
-    @include from('l') {
-      color: black;
-    }
   }
 
   h1 { font-size: $fontSize-h1; }

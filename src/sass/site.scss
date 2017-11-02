@@ -2,13 +2,6 @@
 
 @import "mixins/mixins"; // miscellaneous mixins
 
-// breakpoints (slicer)
-
-@import 'breakpoint-sass/stylesheets/_breakpoint';
-@import 'breakpoint-slicer/stylesheets/_breakpoint-slicer';
-$slicer-breakpoints: 0 640px 935px;
-$slicer-breakpoint-names: 's' 'm' 'l';
-
 // base styling
 
 @import "reset";      // reset styling

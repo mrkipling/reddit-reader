@@ -33,19 +33,19 @@
       }
 
       &__up {
-        background-image: url('/static/images/upvote.svg');
+        background-image: url('../assets/images/upvote.svg');
 
         &.is-active {
-          background-image: url('/static/images/upvote-active.svg');
+          background-image: url('../assets/images/upvote-active.svg');
         }
       }
 
       &__down {
-        background-image: url('/static/images/downvote.svg');
+        background-image: url('../assets/images/downvote.svg');
         margin-top: 2px;
 
         &.is-active {
-          background-image: url('/static/images/downvote-active.svg');
+          background-image: url('../assets/images/downvote-active.svg');
         }
       }
 

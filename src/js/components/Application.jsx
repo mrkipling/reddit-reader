@@ -7,6 +7,8 @@ import Subreddits from './Subreddits';
 import Posts from './Posts';
 import FullPost from './FullPost';
 
+import '../../sass/site.scss';
+
 class Application extends React.Component {
   render() {
     const subreddits = (this.props.loading === 'subreddits') ? (

@@ -25,19 +25,19 @@
     }
 
     &--time {
-      background-image: url('/static/images/time.svg');
+      background-image: url('../assets/images/time.svg');
     }
 
     &--author {
-      background-image: url('/static/images/author.svg');
+      background-image: url('../assets/images/author.svg');
     }
 
     &--comments {
-      background-image: url('/static/images/comments.svg');
+      background-image: url('../assets/images/comments.svg');
     }
 
     &--votes {
-      background-image: url('/static/images/arrow-up.svg');
+      background-image: url('../assets/images/arrow-up.svg');
     }
   }
 }
