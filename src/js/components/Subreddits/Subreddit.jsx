@@ -2,20 +2,23 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { changeSubreddit } from '../actions/activeSubredditActions';
+import CSSModules from 'react-css-modules';
+import styles from './Subreddit.scss';
+
+import { changeSubreddit } from '../../actions/activeSubredditActions';
 
 class Subreddit extends React.Component {
   render() {
-    let cssClass = 'subreddits__subreddit';
+    let cssClass = 'subreddit';
 
     if (this.props.activeSubreddit === this.props.subreddit.display_name) {
-      cssClass += ' is-active';
+      cssClass = 'subreddit--active';
     }
 
     return (
       <li
         onClick={() => this.props.loadSubreddit(this.props.subreddit.display_name)}
-        className={cssClass}
+        styleName={cssClass}
       >
         {this.props.subreddit.display_name_prefixed}
       </li>
@@ -38,4 +41,4 @@ const mapDispatchToProps = dispatch => ({
     dispatch(changeSubreddit(subreddit)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Subreddit);
+export default connect(mapStateToProps, mapDispatchToProps)(CSSModules(Subreddit, styles));

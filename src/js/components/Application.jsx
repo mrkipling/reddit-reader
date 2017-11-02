@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import AppHeader from './AppHeader';
-import Subreddits from './Subreddits';
+import Subreddits from './Subreddits/Subreddits';
 import Posts from './Posts';
 import FullPost from './FullPost';
 

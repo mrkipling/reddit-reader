@@ -6,8 +6,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const paths = require('./paths');
 
-// 'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-
 module.exports = {
   entry: [
     'react-hot-loader/patch',
@@ -43,7 +41,7 @@ module.exports = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
           use: [
-            'css-loader',
+            'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
             'postcss-loader',
             'sass-loader',
           ],
