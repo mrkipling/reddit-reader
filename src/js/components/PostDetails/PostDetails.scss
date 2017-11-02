@@ -1,0 +1,49 @@
+@import '../../../sass/_vars';
+
+.post-details {
+  color: #000;
+  font-size: $fontSize-small;
+  margin-top: 10px;
+  opacity: 0.5;
+}
+
+.item {
+  background-position: left center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-left: 10px;
+  padding-left: 12px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--time {
+    composes: item;
+    background-image: url('../../../assets/images/time.svg');
+  }
+
+  &--author {
+    composes: item;
+    background-image: url('../../../assets/images/author.svg');
+  }
+
+  &--comments {
+    composes: item;
+    background-image: url('../../../assets/images/comments.svg');
+  }
+
+  &--votes {
+    composes: item;
+    background-image: url('../../../assets/images/arrow-up.svg');
+  }
+}

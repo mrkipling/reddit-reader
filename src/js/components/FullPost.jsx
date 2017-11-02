@@ -6,8 +6,9 @@ import { vote } from '../actions/votesActions';
 import { formatNumber } from '../utils';
 
 import Comments from './Comments';
-import PostDetails from './PostDetails';
 import PostMedia from './PostMedia';
+
+import { PostDetails } from '../components';
 
 class FullPost extends React.Component {
   render() {

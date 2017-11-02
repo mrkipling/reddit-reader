@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { fetchPost } from '../actions/postActions';
-import PostDetails from './PostDetails';
+import { PostDetails } from '../components';
 
 class Post extends React.Component {
   render() {
