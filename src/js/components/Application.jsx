@@ -3,10 +3,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import AppHeader from './AppHeader';
-import Posts from './Posts';
 import FullPost from './FullPost';
 
-import { Subreddits } from '../components';
+import {
+  Posts,
+  Subreddits,
+} from '../components';
 
 import '../../sass/site.scss';
 
