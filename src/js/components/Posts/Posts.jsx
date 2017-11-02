@@ -4,7 +4,7 @@ import React from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './Posts.scss';
 
-import Post from '../Post';
+import { Post } from '../../components';
 
 class Posts extends React.Component {
   render() {

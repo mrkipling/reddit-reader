@@ -2,20 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { fetchPost } from '../actions/postActions';
-import { PostDetails } from '../components';
+import CSSModules from 'react-css-modules';
+import styles from './Post.scss';
+
+import { fetchPost } from '../../actions/postActions';
+import { PostDetails } from '../../components';
 
 class Post extends React.Component {
   render() {
-    let cssClass = 'subreddit-post card';
+    let cssClass = 'card';
 
     if (this.props.activePostId === this.props.post.id) {
       cssClass += ' is-active';
     }
 
     return (
-      <li className={cssClass} onClick={this.props.loadPost}>
-        <h2 className="subreddit-post__title">{this.props.post.title}</h2>
+      <li styleName="post" className={cssClass} onClick={this.props.loadPost}>
+        <h2>{this.props.post.title}</h2>
         <PostDetails post={this.props.post} />
       </li>
     );
@@ -36,4 +39,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   loadPost: () => dispatch(fetchPost(ownProps.post.id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Post);
+export default connect(mapStateToProps, mapDispatchToProps)(CSSModules(Post, styles));
