@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { plural, timeAgo, formatNumber } from '../utils';
-import { fetchMoreComments } from '../actions/moreCommentsActions';
-import { vote } from '../actions/votesActions';
+import { plural, timeAgo, formatNumber } from '../../utils';
+import { fetchMoreComments } from '../../actions/moreCommentsActions';
+import { vote } from '../../actions/votesActions';
 
 class Comment extends React.Component {
   render() {

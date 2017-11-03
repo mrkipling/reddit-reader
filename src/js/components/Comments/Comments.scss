@@ -1,0 +1,174 @@
+@import '../../../sass/_vars';
+
+// TODO
+// Make this a CSS module!
+
+:global {
+  .post-comments {
+    padding: 0 20px;
+  }
+
+  .comment {
+    margin-left: -22px;
+    margin-top: 20px;
+    padding-left: 22px;
+    padding-top: 10px;
+    position: relative;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:before {
+      background-color: #ddd;
+      bottom: 0;
+      content: '';
+      display: none;
+      left: 15px;
+      position: absolute;
+      top: 15px;
+      width: 1px;
+    }
+
+    &__votes {
+      left: 0;
+      position: absolute;
+      top: 12px;
+
+      &__up,
+      &__down {
+        background-repeat: norepeat;
+        background-size: 16px 14px;
+        height: 14px;
+        width: 16px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      &__up {
+        background-image: url('../../../assets/images/upvote.svg');
+
+        &.is-active {
+          background-image: url('../../../assets/images/upvote-active.svg');
+        }
+      }
+
+      &__down {
+        background-image: url('../../../assets/images/downvote.svg');
+        margin-top: 2px;
+
+        &.is-active {
+          background-image: url('../../../assets/images/downvote-active.svg');
+        }
+      }
+    }
+
+    &__header {
+      background-color: #fff;
+      color: $color-text-light;
+      font-size: $fontSize-small;
+      padding-bottom: 5px;
+      position: relative;
+      z-index: 1;
+
+      a {
+        color: $color-text-light;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &__author {
+        font-weight: bold;
+
+        a {
+          color: $color-text;
+        }
+
+        &.is-op a {
+          color: #277bff;
+        }
+      }
+
+      .flair {
+        background-color: #f3f3f3;
+        border: 1px solid #e3e3e3;
+        border-radius: 2px;
+        margin-left: 5px;
+        padding: 1px 3px;
+      }
+
+      &__votes {
+        margin-left: 5px;
+      }
+
+      .gold {
+        margin-left: 5px;
+      }
+    }
+
+    .usertext {
+      background-color: #fff;
+      position: relative;
+      z-index: 1;
+
+      &:after {
+        background-color: #fff;
+        bottom: -20px;
+        content: '';
+        display: block;
+        height: 20px;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+
+    &__more-comments {
+      background-color: #fff;
+      color: $color-anchor;
+      font-size: $fontSize-small;
+      font-weight: bold;
+      padding: 10px 0;
+      position: relative;
+      z-index: 1;
+
+      &:hover {
+        color: $color-anchor-hover;
+        cursor: pointer;
+      }
+
+      span {
+        color: $color-text-light;
+        font-weight: normal;
+      }
+    }
+
+    &__continue-thread {
+      background: url('../../../assets/images/arrow-right-blue.svg') no-repeat right center;
+      display: inline-block;
+      font-size: $fontSize-small;
+      font-weight: bold;
+      padding-right: 14px;
+      text-decoration: none;
+    }
+
+    & > .comment {
+      margin-top: 20px;
+      padding-left: 48px;
+      padding-right: 0;
+
+      &:before {
+        display: block;
+      }
+
+      .comment__votes {
+        left: 26px;
+      }
+    }
+  }
+}

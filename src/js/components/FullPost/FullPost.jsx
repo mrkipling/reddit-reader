@@ -5,9 +5,8 @@ import { connect } from 'react-redux';
 import { vote } from '../../actions/votesActions';
 import { formatNumber } from '../../utils';
 
-import Comments from '../Comments';
-
 import {
+  Comments,
   PostDetails,
   PostMedia,
 } from '../../components';

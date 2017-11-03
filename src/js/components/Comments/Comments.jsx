@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Comment from './Comment';
+import { Comment } from '../../components';
+
+import './Comments.scss';
 
 class Comments extends React.Component {
   render() {

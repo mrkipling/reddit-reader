@@ -1,3 +1,5 @@
+import Comment from './Comment/Comment';
+import Comments from './Comments/Comments';
 import FullPost from './FullPost/FullPost';
 import Post from './Post/Post';
 import Posts from './Posts/Posts';
@@ -7,6 +9,8 @@ import Subreddit from './Subreddits/Subreddit';
 import Subreddits from './Subreddits/Subreddits';
 
 export {
+  Comment,
+  Comments,
   FullPost,
   Post,
   Posts,
