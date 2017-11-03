@@ -80,6 +80,10 @@
         &:hover {
           text-decoration: underline;
         }
+
+        &:visited {
+          color: $color-text-light;
+        }
       }
 
       &__author {
