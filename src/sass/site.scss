@@ -1,0 +1,17 @@
+:global {
+  @import "_vars";      // customisable variables (fonts, colours, widths, etc.)
+  @import "reset";      // reset styling
+  @import "base";       // base styling
+  @import "typography"; // typography
+  @import "utils";      // utility classes (at end for specificity reasons)
+
+  // global components
+
+  @import "components/card";
+  @import "components/gold";
+  @import "components/loading";
+}
+
+/*
+@import "components/subreddit-header";
+*/

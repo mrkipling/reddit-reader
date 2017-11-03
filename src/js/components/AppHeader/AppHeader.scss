@@ -1,0 +1,22 @@
+@import '../../../sass/_vars';
+
+.app-header {
+  background-color: #277bff;
+  color: #fff;
+  font-size: $fontSize-large;
+  font-weight: bold;
+  height: 50px;
+  left: 0;
+  padding-left: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.name {
+  margin-top: 14px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
