@@ -25,6 +25,10 @@
     &:hover {
       text-decoration: underline;
     }
+
+    &:visited {
+      color: #000;
+    }
   }
 
   &--time {
