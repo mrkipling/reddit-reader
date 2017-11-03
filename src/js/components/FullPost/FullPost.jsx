@@ -16,6 +16,14 @@ import styles from './FullPost.scss';
 
 class FullPost extends React.Component {
   render() {
+    if (this.props.isLoading) {
+      return (
+        <div styleName="full-post">
+          <div className="loading" />
+        </div>
+      );
+    }
+
     if (!this.props.post.comments) {
       return null;
     }
@@ -82,6 +90,7 @@ FullPost.propTypes = {
   post: PropTypes.object,
   votes: PropTypes.array,
   vote: PropTypes.func,
+  isLoading: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({

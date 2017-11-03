@@ -8,6 +8,14 @@ import { Post } from '../../components';
 
 class Posts extends React.Component {
   render() {
+    if (this.props.isLoading) {
+      return (
+        <div styleName="posts">
+          <div className="loading" />
+        </div>
+      );
+    }
+
     return !this.props.posts.length ? null : (
       <ul styleName="posts">
         {this.props.posts.map(post => <Post key={post.id} post={post} />)}
@@ -18,6 +26,7 @@ class Posts extends React.Component {
 
 Posts.propTypes = {
   posts: PropTypes.array,
+  isLoading: PropTypes.bool,
 };
 
 export default CSSModules(Posts, styles);

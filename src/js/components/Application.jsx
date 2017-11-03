@@ -13,37 +13,22 @@ import '../../sass/site.scss';
 
 class Application extends React.Component {
   render() {
-    const subreddits = (this.props.loading === 'subreddits') ? (
-      <div className="subreddits">
-        <div className="loading" />
-      </div>
-    ) : (
-      <Subreddits subreddits={this.props.subreddits} />
-    );
-
-    const posts = (this.props.loading === 'subreddit') ? (
-      <div className="subreddit-posts">
-        <div className="loading" />
-      </div>
-    ) : (
-      <Posts posts={this.props.posts} />
-    );
-
-    const fullPost = (this.props.loading === 'post') ? (
-      <div className="full-post">
-        <div className="loading" />
-      </div>
-    ) : (
-      <FullPost post={this.props.post} />
-    );
-
     return (
       <div id="application">
         <AppHeader activeSubreddit={this.props.activeSubreddit} />
         <div className="u-cf">
-          {subreddits}
-          {posts}
-          {fullPost}
+          <Subreddits
+            subreddits={this.props.subreddits}
+            isLoading={this.props.loading === 'subreddits'}
+          />
+          <Posts
+            posts={this.props.posts}
+            isLoading={this.props.loading === 'subreddit'}
+          />
+          <FullPost
+            post={this.props.post}
+            isLoading={this.props.loading === 'post'}
+          />
         </div>
       </div>
     );

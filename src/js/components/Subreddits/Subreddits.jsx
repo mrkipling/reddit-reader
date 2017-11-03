@@ -8,6 +8,14 @@ import Subreddit from './Subreddit';
 
 class Subreddits extends React.Component {
   render() {
+    if (this.props.isLoading) {
+      return (
+        <div styleName="subreddits">
+          <div className="loading" />
+        </div>
+      );
+    }
+
     return (
       <ul styleName="subreddits">
         {this.props.subreddits.map(subreddit =>
@@ -19,6 +27,7 @@ class Subreddits extends React.Component {
 
 Subreddits.propTypes = {
   subreddits: PropTypes.array,
+  isLoading: PropTypes.bool,
 };
 
 export default CSSModules(Subreddits, styles);
