@@ -13,7 +13,7 @@ store.dispatch(fetchSubreddits());
 const render = (Component) => {
   ReactDOM.render(
     <Provider store={store}>
-      <AppContainer>
+      <AppContainer warnings={false}>
         <Component />
       </AppContainer>
     </Provider>,
