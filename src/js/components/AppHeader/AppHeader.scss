@@ -1,4 +1,6 @@
-.subreddit-header {
+@import '../../../sass/_vars';
+
+.app-header {
   background-color: #277bff;
   color: #fff;
   font-size: $fontSize-large;
@@ -9,12 +11,12 @@
   position: absolute;
   right: 0;
   top: 0;
+}
 
-  &__name {
-    margin-top: 14px;
+.name {
+  margin-top: 14px;
 
-    &:hover {
-      cursor: pointer;
-    }
+  &:hover {
+    cursor: pointer;
   }
 }

@@ -2,9 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import AppHeader from './AppHeader';
-
 import {
+  AppHeader,
   FullPost,
   Posts,
   Subreddits,

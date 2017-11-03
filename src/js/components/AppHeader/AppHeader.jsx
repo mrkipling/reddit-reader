@@ -2,15 +2,18 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { changeSubreddit } from '../actions/activeSubredditActions';
+import CSSModules from 'react-css-modules';
+import styles from './AppHeader.scss';
+
+import { changeSubreddit } from '../../actions/activeSubredditActions';
 
 class AppHeader extends React.Component {
   render() {
     return (
-      <header className="subreddit-header">
+      <header styleName="app-header">
         {!this.props.activeSubreddit ?
          null :
-         <h1 className="subreddit-header__name" onClick={this.props.askChangeSubreddit}>{'/r/' + this.props.activeSubreddit}</h1>
+         <h1 styleName="name" onClick={this.props.askChangeSubreddit}>{'/r/' + this.props.activeSubreddit}</h1>
         }
       </header>
     );
@@ -32,4 +35,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppHeader);
+export default connect(mapStateToProps, mapDispatchToProps)(CSSModules(AppHeader, styles));
