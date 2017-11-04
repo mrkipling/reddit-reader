@@ -30,7 +30,7 @@ class Comment extends React.Component {
 
     let commentLikes = comment.likes;
     const customVote = this.props.votes
-                         .filter(cv => cv.contentId === comment.id);
+      .filter(cv => cv.contentId === comment.id);
 
     if (customVote.length) {
       if (customVote[0].direction === 'unvote') {
@@ -66,7 +66,7 @@ class Comment extends React.Component {
     }
 
     let fetchedMoreComments = this.props.moreComments
-                                  .filter(mc => mc.commentId === comment.id);
+      .filter(mc => mc.commentId === comment.id);
 
     let eleFetchedMoreComments = null;
 

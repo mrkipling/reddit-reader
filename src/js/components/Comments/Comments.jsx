@@ -9,13 +9,14 @@ class Comments extends React.Component {
   render() {
     return (
       <div className="post-comments">
-        {this.props.comments.map(comment =>
+        {this.props.comments.map(comment => (
           <Comment
             key={comment.id}
             comment={comment}
             op={this.props.op}
             permalink={this.props.permalink}
-          />)}
+          />
+        ))}
       </div>
     );
   }

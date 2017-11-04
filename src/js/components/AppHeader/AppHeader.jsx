@@ -12,9 +12,8 @@ class AppHeader extends React.Component {
     return (
       <header styleName="app-header">
         {!this.props.activeSubreddit ?
-         null :
-         <h1 styleName="name" onClick={this.props.askChangeSubreddit}>{'/r/' + this.props.activeSubreddit}</h1>
-        }
+          null :
+          <h1 styleName="name" onClick={this.props.askChangeSubreddit}>{'/r/' + this.props.activeSubreddit}</h1>}
       </header>
     );
   }

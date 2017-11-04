@@ -11,9 +11,9 @@ export const fetchSubredditSuccess = subreddit => ({
 export const fetchSubreddit = subredditName => (dispatch) => {
   dispatch(loadingStart('subreddit'));
   return reddit.getHot(subredditName)
-               .map(post => post)
-               .then((subreddit) => {
-                 dispatch(loadingEnd());
-                 dispatch(fetchSubredditSuccess(subreddit));
-               });
+    .map(post => post)
+    .then((subreddit) => {
+      dispatch(loadingEnd());
+      dispatch(fetchSubredditSuccess(subreddit));
+    });
 };

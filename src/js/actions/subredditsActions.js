@@ -11,8 +11,8 @@ export const fetchSubredditsSuccess = subreddits => ({
 export const fetchSubreddits = () => (dispatch) => {
   dispatch(loadingStart('subreddits'));
   return reddit.getSubscriptions()
-               .then((subreddits) => {
-                 dispatch(loadingEnd());
-                 dispatch(fetchSubredditsSuccess(subreddits));
-               });
+    .then((subreddits) => {
+      dispatch(loadingEnd());
+      dispatch(fetchSubredditsSuccess(subreddits));
+    });
 };

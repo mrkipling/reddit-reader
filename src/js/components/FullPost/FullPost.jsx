@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import CSSModules from 'react-css-modules';
 
 import { vote } from '../../actions/votesActions';
 import { formatNumber } from '../../utils';
@@ -11,7 +12,6 @@ import {
   PostMedia,
 } from '../../components';
 
-import CSSModules from 'react-css-modules';
 import styles from './FullPost.scss';
 
 class FullPost extends React.Component {
@@ -40,7 +40,7 @@ class FullPost extends React.Component {
 
     let postLikes = this.props.post.likes;
     const customVote = this.props.votes
-                           .filter(cv => cv.contentId === this.props.post.id);
+      .filter(cv => cv.contentId === this.props.post.id);
 
     if (customVote.length) {
       if (customVote[0].direction === 'unvote') {
@@ -77,9 +77,9 @@ class FullPost extends React.Component {
           <PostMedia post={this.props.post} />
         </header>
         <Comments
-            comments={this.props.post.comments}
-            op={this.props.post.author.name}
-            permalink={this.props.post.permalink}
+          comments={this.props.post.comments}
+          op={this.props.post.author.name}
+          permalink={this.props.post.permalink}
         />
       </div>
     );

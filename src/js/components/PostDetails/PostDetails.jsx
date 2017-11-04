@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CSSModules from 'react-css-modules';
 import { timeAgo, formatNumber } from '../../utils';
 
-import CSSModules from 'react-css-modules';
 import styles from './PostDetails.scss';
 
 class PostDetails extends React.Component {
