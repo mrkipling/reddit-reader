@@ -12,7 +12,7 @@
 
   .header {
     margin: 0 0 10px 0;
-    padding-left: 55px;
+    padding-left: 68px;
     position: relative;
   }
 }
@@ -28,6 +28,13 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.votes {
+  left: 14px;
+  position: absolute;
+  top: 18px;
+  width: 44px;
 }
 
 .up {
@@ -47,13 +54,6 @@
     composes: down;
     background-image: url('../../../assets/images/downvote-active.svg');
   }
-}
-
-.votes {
-  left: 10px;
-  position: absolute;
-  top: 18px;
-  width: 34px;
 }
 
 .score {
