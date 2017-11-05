@@ -1,6 +1,6 @@
 const settings = {
   reddit: {
-    userAgent: 'reddit-reader',
+    userAgent: 'snooflaps v0.0.0 (by /u/mrkipling)',
     clientId: '',
     clientSecret: '',
     refreshToken: '',
