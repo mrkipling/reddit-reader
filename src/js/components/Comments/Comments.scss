@@ -23,8 +23,7 @@
       background-color: #eee;
       bottom: 0;
       content: '';
-      display: none;
-      left: 37px;
+      left: 17px;
       position: absolute;
       top: 60px;
       width: 1px;
@@ -167,7 +166,7 @@
       padding-right: 0;
 
       &:before {
-        display: block;
+        left: 37px;
       }
 
       .comment__votes {
