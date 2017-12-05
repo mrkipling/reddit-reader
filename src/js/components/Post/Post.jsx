@@ -19,7 +19,7 @@ class Post extends React.Component {
     return (
       <li styleName="post" className={cssClass} onClick={this.props.loadPost}>
         <h2>{this.props.post.title}</h2>
-        <PostDetails post={this.props.post} />
+        <PostDetails post={this.props.post} showPostLength />
       </li>
     );
   }

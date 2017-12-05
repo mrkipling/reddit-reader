@@ -50,4 +50,9 @@
     composes: item;
     background-image: url('../../../assets/images/arrow-up.svg');
   }
+
+  &--postLength {
+    composes: item;
+    background-image: url('../../../assets/images/words.svg');
+  }
 }
